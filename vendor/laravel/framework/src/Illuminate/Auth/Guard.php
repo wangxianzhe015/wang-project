@@ -133,9 +133,9 @@ class Guard implements GuardContract
             return;
         }
 
-        // If we have already retrieved the user for the current request we can just
-        // return it back immediately. We do not want to pull the user data every
-        // request into the method because that would tremendously slow an app.
+        // If we've already retrieved the user for the current request we can just
+        // return it back immediately. We do not want to fetch the user data on
+        // every call to this method because that would be tremendously slow.
         if (! is_null($this->user)) {
             return $this->user;
         }
@@ -221,7 +221,7 @@ class Guard implements GuardContract
     /**
      * Get the user ID from the recaller cookie.
      *
-     * @return string
+     * @return string|null
      */
     protected function getRecallerId()
     {
@@ -281,7 +281,7 @@ class Guard implements GuardContract
      * @param  string  $field
      * @return \Symfony\Component\HttpFoundation\Response|null
      */
-    public function basic($field = 'user_name')
+    public function basic($field = 'email')
     {
         if ($this->check()) {
             return;
@@ -547,7 +547,7 @@ class Guard implements GuardContract
         $this->clearUserDataFromStorage();
 
         if (! is_null($this->user)) {
-            //$this->refreshRememberToken($user);
+            $this->refreshRememberToken($user);
         }
 
         if (isset($this->events)) {

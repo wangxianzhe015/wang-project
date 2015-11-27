@@ -49,7 +49,7 @@ interface Guard
      * @param  string  $field
      * @return \Symfony\Component\HttpFoundation\Response|null
      */
-    public function basic($field = 'user_name');
+    public function basic($field = 'email');
 
     /**
      * Perform a stateless HTTP Basic login attempt.

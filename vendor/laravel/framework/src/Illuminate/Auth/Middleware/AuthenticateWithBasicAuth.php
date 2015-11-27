@@ -34,6 +34,6 @@ class AuthenticateWithBasicAuth
      */
     public function handle($request, Closure $next)
     {
-        return $this->auth->basic() ? redirect("/login"): $next($request);
+        return $this->auth->basic() ?: $next($request);
     }
 }

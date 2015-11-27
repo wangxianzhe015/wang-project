@@ -41,7 +41,7 @@ class CookieJar implements JarContract
      * @param  bool    $httpOnly
      * @return \Symfony\Component\HttpFoundation\Cookie
      */
-    public function make($name, $value, $minutes = 0, $path = null, $domain = null, $secure = false, $httpOnly = false)
+    public function make($name, $value, $minutes = 0, $path = null, $domain = null, $secure = false, $httpOnly = true)
     {
         list($path, $domain) = $this->getPathAndDomain($path, $domain);
 
@@ -123,6 +123,7 @@ class CookieJar implements JarContract
      * Remove a cookie from the queue.
      *
      * @param  string  $name
+     * @return void
      */
     public function unqueue($name)
     {

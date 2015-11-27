@@ -83,13 +83,6 @@ class Mailer implements MailerContract, MailQueueContract
     protected $failedRecipients = [];
 
     /**
-     * Array of parsed views containing html and text view name.
-     *
-     * @var array
-     */
-    protected $parsedViews = [];
-
-    /**
      * Create a new Mailer instance.
      *
      * @param  \Illuminate\Contracts\View\Factory  $views
@@ -159,7 +152,7 @@ class Mailer implements MailerContract, MailQueueContract
      * @param  string|array  $view
      * @param  array  $data
      * @param  \Closure|string  $callback
-     * @return mixed
+     * @return void
      */
     public function send($view, array $data, $callback)
     {
@@ -213,9 +206,25 @@ class Mailer implements MailerContract, MailQueueContract
      * @param  \Closure|string  $callback
      * @return mixed
      */
-    public function queueOn($queue, $view, array $data, $callback)
+    public function onQueue($queue, $view, array $data, $callback)
     {
         return $this->queue($view, $data, $callback, $queue);
+    }
+
+    /**
+     * Queue a new e-mail message for sending on the given queue.
+     *
+     * This method didn't match rest of framework's "onQueue" phrasing. Added "onQueue".
+     *
+     * @param  string  $queue
+     * @param  string|array  $view
+     * @param  array  $data
+     * @param  \Closure|string  $callback
+     * @return mixed
+     */
+    public function queueOn($queue, $view, array $data, $callback)
+    {
+        return $this->onQueue($queue, $view, $data, $callback);
     }
 
     /**
@@ -323,11 +332,15 @@ class Mailer implements MailerContract, MailQueueContract
         }
 
         if (isset($plain)) {
-            $message->addPart($this->getView($plain, $data), 'text/plain');
+            $method = isset($view) ? 'addPart' : 'setBody';
+
+            $message->$method($this->getView($plain, $data), 'text/plain');
         }
 
         if (isset($raw)) {
-            $message->addPart($raw, 'text/plain');
+            $method = (isset($view) || isset($plain)) ? 'addPart' : 'setBody';
+
+            $message->$method($raw, 'text/plain');
         }
     }
 
