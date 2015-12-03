@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use View;
 
 class IndexController extends Controller
 {
@@ -83,5 +84,9 @@ class IndexController extends Controller
     public function destroy($id)
     {
         //
+    }
+    
+    public function home(){
+    	return View::make('pages.home');
     }
 }

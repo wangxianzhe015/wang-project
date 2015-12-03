@@ -14,3 +14,5 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Rout::get('/home', ['as' => 'home', 'uses' => 'IndexController@home'];
