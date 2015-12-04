@@ -1,5 +1,5 @@
 @extends('layouts.home')
 
 @section('content')
-	<div>First Page Content</div>
+	<div id = "welcome-title">Welcome to Wang Xianzhe's Homepage</div>
 @stop
