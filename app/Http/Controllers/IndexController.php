@@ -89,4 +89,8 @@ class IndexController extends Controller
     public function home(){
     	return View::make('pages.home');
     }
+
+    public function help(){
+        return View::make('pages.help');
+    }
 }
