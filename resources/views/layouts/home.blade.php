@@ -6,7 +6,7 @@
 
 <body>
 	<div id = "header">
-		@include('header')
+		@include('partials.header')
 	</div>
 	<div id = "gallery"></div>
 	
@@ -15,7 +15,7 @@
 	</div>
 		
 	<div id = "footer">
-		@include('footer')
+		@include('partials.footer')
 	</div>
 </body>
 

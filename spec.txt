@@ -1,0 +1,39 @@
+Project Description
+Core Task (Read this at least before bidding please)
+
+A. PSD to responsive html x 5
+B. Registration Methods, Database Creation & Database Querying, all coded in Laravel 5.0 framework.
+C. Usability testing, incl. launch of webpages and search result at lightning speed (optimised based on findings on https://developers.google.com/speed/pagespeed/insights/ . All must be green.)
+
+
+HOME page
+1. Header and footer should be separate files. Install Google Adsense ads in the footer. Add Google analytics, favicon and caching in the header.
+2. Allow registration via Facebook & twitter for visitors before they can contact people in the directory. The details should also be saved in a newly created database table.
+3. If visitors come back they shouldn’t have to register again to use the directory. So, checking for logged in Facebook and twitter is needed to make contact with people registered in the directory.
+
+REGISTER page
+1. The form (just 9 fields incl. some drop down options and profile image) should have 3 fields already filled out if the visitor starts their sign up journey from the homepage.
+2. Details of the form should be submitted on a mySQL database (database and table should be created first with time index).
+3. Allow completion of registration via Facebook/ Twitter with a message submitted on their Facebook/Twitter wall.
+4. Allow completion of registration and payment via PayPal.
+5. Registrants on free membership must not be listed in the search results after their 1 year has expired.
+6. Create an email directory of subscribers by extracting the data from 3 databases we have, and an email sending page (not CMS, just raw coding is sufficient).
+7. Setup cron job that adds 1 SMS credit to each registrant who has zero SMS credits in one calendar month.
+
+SEARCH RESULT page
+1. Search results should be listed according to distance from a UK postcode and 5 other search parameters
+2. Contact form or popup via SMS (SMS gateway) or Email (email sending service) should be shown when contact buttons are selected.
+3. Only those who are logged into their Facebook/Twitter account can make contact, otherwise the visitor should be asked to login via Facebook or Twitter.
+
+AGENCY page
+1. Create table in the database with time index and submit data (just 6 fields).
+2. Show location of agencies on a UK Google map using location icons. Users should be able to zoom in/ out and move the map up and down the viewfinder.
+3. Upon clicking over a location icon; the agency name, tel number and ‘email’ button is shown.
+
+CONTACT US page
+1. Display Qs and upon clicking the Qs- the answers slides open. When the next Q is selected the previous answer should slide back up.
+2. Testimonials should rotate.
+3. Contact Us details should submitted via email
+
+--------------------------------------------------------------------------------------------------
+Need this complete within 1 week from the time PSD's have been handed over. Only professional companies please bid.
